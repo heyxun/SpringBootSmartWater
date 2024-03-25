@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smart.water.dao.OrderMapper">
+    <!--int insertOrder();-->
+    <insert id="insertOrder">
+        insert into tb_order values(null,'water','1.00','1','江苏','张三')
+    </insert>
+    <update id="updateOrder">
+        update tb_order set name = 'hot-stone' where id = 1
+    </update>
+    <delete id="deleteOrder">
+        delete from tb_order where id = 9
+    </delete>
+    <select id="getOrderById" resultType="com.smart.water.entity.Order">
+        select * from tb_order where id = 1
+    </select>
+    <select id="getOrderByBuyer" parameterType="String" resultType="com.smart.water.entity.Order">
+        select * from tb_order where buyer = #{"张三"}
+    </select>
+    <select id="getAllOrder" resultType="com.smart.water.entity.Order">
+        select * from tb_order
+    </select>
+</mapper>
